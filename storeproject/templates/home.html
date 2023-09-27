@@ -1,15 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block myscript %}
-<script>
-(function () {
-	window.onpageshow = function(event) {
-		if (event.persisted) {
-			window.location.reload();
-		}
-	};
-})();
-</script>
+
 {% endblock %}
 {% block body %}
 
