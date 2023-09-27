@@ -6,7 +6,17 @@ from storeapp.models import Register, Dept, Course
 
 def demo(request):
     obj = Dept.objects.all()
+    if request.method == 'POST':
+        username = request.POST['name']
+        password = request.POST['psw']
+        user = auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('storeapp:order')
+        else:
+            messages.warning(request, "Username or Password is not valid    ")
     return render(request,'home.html',{'key1' : obj})
+'''
 def login(request):
     if request.method == 'POST':
         username = request.POST['name']
@@ -19,6 +29,7 @@ def login(request):
             messages.warning(request, "Invalid user")
 
     return render(request, 'login.html')
+'''
 def register(request):
     if request.method == 'POST':
         username = request.POST['name']
@@ -29,25 +40,23 @@ def register(request):
                 messages.info(request, "Username already exists")
                 #return redirect('register')
             else :
-                user1 = User.objects.create_user(username=username,password=password)
-                user1.save()
-                return redirect('storeapp:login')
+                user = User.objects.create_user(username=username,password=password)
+                user.save()
+                return redirect('storeapp:demo')
         else :
             messages.info(request,"Password not matching")
             #return redirect('register')
 
     return render(request,'register.html')
-
 def order(request):
     Deptobj = Dept.objects.all()
     Courseobj = Course.objects.all()
     if request.method == 'POST':
-
         messages.info(request, "Data sent successfully")
         return redirect('storeapp:order')
+
     return render(request, 'order.html', {'Deptobj': Deptobj, 'Courseobj':Courseobj})
 def logout(request):
-    return redirect('/')
+    auth.logout(request)
+    return redirect('storeapp:demo')
 
-def load_course(request):
-    pass
