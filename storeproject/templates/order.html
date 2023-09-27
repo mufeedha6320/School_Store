@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% include
 {% block myscript %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
@@ -58,7 +59,7 @@ $(document).ready(function()
     <hr>
     <div style=" text-align: center;" >
     <button type="submit" class="orderbtn1">SUBMIT</button>
-    <a href="{% url 'storeapp:logout' %}" class="orderbtn2"> LOGOUT </a>
+    <!--- <a href="{% url 'storeapp:logout' %}" class="orderbtn2"> LOGOUT </a> ---->
       </div>
   </div>
 </form>
