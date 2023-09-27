@@ -1,0 +1,138 @@
+*{
+    font-family: Serif;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding: 10px 10px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+ul li a{
+    padding: 10px 10px;
+
+}
+.welcome-title {
+    text-align : center;
+    font-weight : 600;
+    font-family: Serif;
+    margin-top: 20px;
+}
+/******************* login form *************************/
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], input[type=text-area], form select {
+  width: 100%;
+  padding: 15px 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius : 10px;
+  background: #f1f1f1;
+}
+input[type=radio], input[type=checkbox]{
+    width: auto;
+    padding: 15px 15px;
+    margin: 5px 0 22px 0;
+}
+textarea{
+  width: 100%;
+  padding: 15px 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius : 10px;
+  background: #f1f1f1;
+}
+textarea::placeholder{
+    color: black;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius : 10px;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+div span {
+  width: auto;
+  padding: 10px 18px;
+  background-color: grey;
+}
+.container {
+  padding: 16px;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+  background-color: #f44336;
+}
+
+/********************** register ************************/
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for the submit button */
+.orderbtn1, .orderbtn2 {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border-radius : 10px;
+  cursor: pointer;
+  width: auto;
+  opacity: 0.9;
+}
+
+.orderbtn1:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.orderbtn2 {
+ text-decoration: none;
+}
+.message{
+    color:red;
+    text-align:center;
+    font-weight: 400;
+    width:25%;
+    display: block;
+    border-radius:10px;
+    transition : display 2s;
+}
+.message {
+    transform : display none;
+}

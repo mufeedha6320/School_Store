@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'storeapp:login' %}"> Login </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'storeapp:register' %}">Register</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+          Department
+        </a>
+        <ul class="nav-item dropdown-content bg-success" style="list-style-type: none; " >
+          {% for i in key1 %}
+          <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/{{ i.dept }}">{{ i.dept }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div>
+    <h2 class="welcome-title">
+      Welcome to School Store
+    </h2>
+    <img src="{% static 'images/img.png' %}" width="100%">
+</div>
+
+{% endblock %}

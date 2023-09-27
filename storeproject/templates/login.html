@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+<h2>Login Form</h2>
+<form method="post">
+{% csrf_token %}
+  <div class="container">
+    <input type="text" placeholder="Enter Username" name="name" required>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <button type="submit">Login</button>
+  </div>
+  <div class="container">
+    <span class="psw">Registration <a href="{% url 'storeapp:register' %}">link </a></span>
+  </div>
+</form>
+  {% for i in  messages %}
+  <h3 class="message" style=""> {{ i }} </h3>
+  {% endfor %}
+</div>
+{% endblock %}

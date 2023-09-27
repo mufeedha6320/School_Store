@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block myscript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+     var $dept = $("#select1"),
+         $course = $("#select2"),
+         $options = $course.find('option');
+     $dept.on('change',function()
+     {
+        $course.html($options.filter('[value="'+ this.value  +'"]'));
+     }).trigger('change');
+});
+
+</script>
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<form method="post">
+  {% csrf_token %}
+  <div class="container form-contents">
+    <h1>Details </h1>
+    <hr>
+    <input type="text" placeholder="Full Name" name="name" id="name" required>
+    <input type="number" placeholder="Age" name="psw" id="psw" min="17" max="30" required>
+    <input type="radio" name="gender" id="male" required> Male
+    <input type="radio" name="gender" id="female" required> <label for="female">Female</label>
+    <input type="tel" placeholder="Mobile Number" name="mobile" id="mobile" pattern="[0-9]{10}" required>
+    <input type="email" placeholder="email" name="name" id="email" required>
+    <input type="text" placeholder="Address" name="address" id="address" maxlength="100" minlength="5" required>
+
+    <select id="select1">
+      <option value="0" selected="selected">Select Department</option>
+       {% for i in Deptobj %}
+          <option value="{{ i.id }}">{{i.dept}}</option>
+        {% endfor %}
+    </select>
+    <select  id="select2">
+      <option value="0" selected >Choose course</option>
+      {% for i in Courseobj %}
+          <option value="{{ i.department_id }}">{{i.course}}</option>
+        {% endfor %}
+    </select>
+
+    <select name="dept" id="purpose">
+      <option value="" selected="selected">Enquiry</option>
+      <option value="" >Place Order</option>
+      <option value="" >Return</option>
+    </select>
+    <input type="checkbox" id="material1" name="material1" value="Notebook"> Notebook
+    <input type="checkbox" id="material2" name="material2" value="Pen"> Pen
+    <input type="checkbox" id="material3" name="material3" value="Exam Papers"> Exam Papers
+
+    <hr>
+    <div style=" text-align: center;" >
+    <button type="submit" class="orderbtn1">SUBMIT</button>
+    <a href="{% url 'storeapp:logout' %}" class="orderbtn2"> LOGOUT </a>
+      </div>
+  </div>
+</form>
+  {% for i in  messages %}
+  <h3 class="message" style=""> {{ i }} </h3>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+<form method="post">
+  {% csrf_token %}
+  <div class="container">
+    <h1>Student Registration </h1>
+    <hr>
+
+    <input type="text" placeholder="Enter username" name="name" id="email" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <input type="password" placeholder="Confirm Password" name="psw2" id="psw-repeat" required>
+    <hr>
+
+    <button type="submit" class="registerbtn" onclick="checkfun()">SUBMIT</button>
+  </div>
+</form>
+  {% for i in  messages %}
+  <h3 class="message" style=""> {{ i }} </h3>
+  {% endfor %}
+</div>
+{% endblock %}
